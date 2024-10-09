@@ -11,10 +11,12 @@ import java.time.LocalDate;
 
 public class TelaAlterarAcao {
     private JPanel panel;
+    private JPanel panel1;
     private JTextField idField1;
     private JTextField nomeField1;
     private JTextField dataField1;
     private JTextField valorField2;
+    private JTextPane textoPane;
     private JButton enviarButton;
     private JButton buscarButton;
 

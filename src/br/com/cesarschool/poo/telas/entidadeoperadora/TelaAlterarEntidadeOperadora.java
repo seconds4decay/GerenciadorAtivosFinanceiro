@@ -18,6 +18,9 @@ public class TelaAlterarEntidadeOperadora {
     private JLabel saldoAcaoText;
     private JLabel saldoTituloDivida;
     private JTextArea preenchaApenasOIDTextArea;
+    private JTextField textField1;
+    private JButton creditarButton;
+    private JButton debitarButton;
 
     public TelaAlterarEntidadeOperadora() {
         alterarButton.addActionListener(new ActionListener() {
@@ -49,6 +52,10 @@ public class TelaAlterarEntidadeOperadora {
                 int id = Integer.parseInt(idField1.getText());
                 try {
                     EntidadeOperadora entidade = mediator.buscar(id);
+                    if(entidade == null) {
+                        JOptionPane.showMessageDialog(null, "Entidade Operadora não encontrada.");
+                        return;
+                    }
                     nameField2.setText(entidade.getNome());
                     autorizacaoField.setText(String.valueOf(entidade.getAutorizadoAcao()));
                     saldoAcaoText.setText("Saldo Ação:" + entidade.getSaldoAcao());

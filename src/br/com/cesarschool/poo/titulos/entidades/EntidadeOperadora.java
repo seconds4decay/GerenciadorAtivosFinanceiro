@@ -10,13 +10,13 @@ import java.lang.reflect.Constructor;
  * saldoAcao, do tipo double
  * saldoTituloDivida, do tipo double
  * 
- * Deve ter um construtor público que inicializa os atributos identificador, nome
- * e autorizadoAcao. Deve ter métodos set/get públicos para os atributos identificador, nome
- * e autorizadoAcao. O atributo identificador é read-only fora da classe.
+ * Deve ter um construtor pï¿½blico que inicializa os atributos identificador, nome
+ * e autorizadoAcao. Deve ter mï¿½todos set/get pï¿½blicos para os atributos identificador, nome
+ * e autorizadoAcao. O atributo identificador ï¿½ read-only fora da classe.
  * 
- * Os atributos saldoAcao e saldoTituloDivida devem ter apenas métodos get públicos.
+ * Os atributos saldoAcao e saldoTituloDivida devem ter apenas mï¿½todos get pï¿½blicos.
  * 
- * Outros métodos públicos:
+ * Outros mï¿½todos pï¿½blicos:
  * 
  *  void creditarSaldoAcao(double valor): deve adicionar valor ao saldoAcao
  *  void debitarSaldoAcao(double valor): deve diminuir valor de saldoAcao
@@ -71,11 +71,11 @@ public class EntidadeOperadora {
     }
 
     public void creditarSaldoAcao(double valor) {
-        saldoAcao += valor;
+        this.saldoAcao = saldoAcao + valor;
     }
 
     public void debitarSaldoAcao(double valor) {
-        saldoAcao -= valor;
+        this.saldoAcao = saldoAcao -valor;
     }
 
     public void creditarSaldoTituloDivida(double valor) {
