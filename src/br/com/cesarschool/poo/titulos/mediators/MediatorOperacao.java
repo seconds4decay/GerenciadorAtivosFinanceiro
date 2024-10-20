@@ -174,7 +174,7 @@ public class MediatorOperacao {
         	valorOperacao = 123;
         }
         
-
+        
         return null; 
     }
 }
