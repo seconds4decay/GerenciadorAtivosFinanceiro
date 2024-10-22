@@ -16,6 +16,7 @@ public class TelaMenuPrincipal {
     private JButton titulosDividasButton;
     private JButton operacoesButton;
     private JPanel panel;
+    private JButton sairButton;
 
     public TelaMenuPrincipal() {
     	panel = new JPanel();
@@ -23,11 +24,14 @@ public class TelaMenuPrincipal {
     	entidadesOperadorasButton = new JButton("Entidades operadoras");
     	titulosDividasButton = new JButton("Títulos de dívidas");
     	operacoesButton = new JButton("Operações");
+        sairButton = new JButton("Sair");
+
     	
         panel.add(acoesButton);
         panel.add(entidadesOperadorasButton);
         panel.add(titulosDividasButton);
         panel.add(operacoesButton);
+        panel.add(sairButton);
     		
         acoesButton.addActionListener(new ActionListener() {
             @Override
@@ -65,6 +69,14 @@ public class TelaMenuPrincipal {
                 TelaOperacao tela = new TelaOperacao();
                 JPanel painel = tela.getPanel1();
                 configTela(telaFrame, painel, "Operações");
+            }
+        });
+
+        sairButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(sairButton);
+                frame.dispose();
             }
         });
     }

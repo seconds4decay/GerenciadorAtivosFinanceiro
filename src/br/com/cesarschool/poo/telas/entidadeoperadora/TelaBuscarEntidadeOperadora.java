@@ -15,6 +15,15 @@ public class TelaBuscarEntidadeOperadora {
     private JPanel panel1;
 
     public TelaBuscarEntidadeOperadora() {
+        panel1 = new JPanel();
+        idField = new JLabel("ID:");
+        buscarTextField = new JTextField(20);
+        buscarButton = new JButton("Buscar");
+
+        panel1.add(idField);
+        panel1.add(buscarTextField);
+        panel1.add(buscarButton);
+
         buscarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

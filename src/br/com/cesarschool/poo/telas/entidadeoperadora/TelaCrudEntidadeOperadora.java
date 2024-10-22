@@ -14,6 +14,19 @@ public class TelaCrudEntidadeOperadora {
     private JPanel panel;
 
     public TelaCrudEntidadeOperadora() {
+        panel = new JPanel();
+        adicionarButton = new JButton("Adicionar");
+        excluirButton = new JButton("Excluir");
+        alterarButton = new JButton("Alterar");
+        buscarButton = new JButton("Buscar");
+        sairButton = new JButton("Sair");
+
+        panel.add(adicionarButton);
+        panel.add(excluirButton);
+        panel.add(alterarButton);
+        panel.add(buscarButton);
+        panel.add(sairButton);
+
         adicionarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -23,6 +36,7 @@ public class TelaCrudEntidadeOperadora {
                 configTela(telaFrame, painel, "Adicionar Entidade Operadora");
             }
         });
+
         excluirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,6 +46,7 @@ public class TelaCrudEntidadeOperadora {
                 configTela(telaFrame, painel, "Excluir Entidade Operadora");
             }
         });
+
         buscarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,6 +56,7 @@ public class TelaCrudEntidadeOperadora {
                 configTela(telaFrame, painel, "Buscar Entidade Operadora");
             }
         });
+
         alterarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,6 +66,7 @@ public class TelaCrudEntidadeOperadora {
                 configTela(telaFrame, painel, "Alterar Entidade Operadora");
             }
         });
+
         sairButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,6 +80,7 @@ public class TelaCrudEntidadeOperadora {
         tela.add(painel);
         tela.pack();
         tela.setLocationRelativeTo(null);
+        tela.setSize(1400, 100);
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setTitle(titulo);
@@ -79,6 +97,7 @@ public class TelaCrudEntidadeOperadora {
         frame.getContentPane().add(tela.panel);
         frame.pack();
         frame.setLocationRelativeTo(null);
+        frame.setSize(500, 200);
         frame.setVisible(true);
     }
 }

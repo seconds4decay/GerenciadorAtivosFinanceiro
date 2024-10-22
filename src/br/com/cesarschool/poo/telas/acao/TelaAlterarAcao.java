@@ -15,7 +15,7 @@ public class TelaAlterarAcao {
     private JTextField nomeField1;
     private JTextField dataField1;
     private JTextField valorField2;
-    private JTextPane textoPane;
+    private JTextArea textoPane;
     private JButton enviarButton;
     private JButton buscarButton;
 
@@ -25,7 +25,7 @@ public class TelaAlterarAcao {
         nomeField1 = new JTextField(20);
         dataField1 = new JTextField(20);
         valorField2 = new JTextField(20);
-        textoPane = new JTextPane();
+        textoPane = new JTextArea("Preencha apenas o ID para buscar a ação.");
         enviarButton = new JButton("Enviar");
         buscarButton = new JButton("Buscar");
 
@@ -33,7 +33,6 @@ public class TelaAlterarAcao {
         JLabel nomeLabel = new JLabel("Nome:");
         JLabel dataLabel = new JLabel("Data (YYYY-MM-DD):");
         JLabel valorLabel = new JLabel("Valor:");
-        JLabel textoLabel = new JLabel("Texto Adicional:");
 
         idField1.setBounds(10, 10, 10, 10);
         nomeField1.setBounds(20, 20, 200, 200);
@@ -46,7 +45,6 @@ public class TelaAlterarAcao {
         panel.add(dataField1);
         panel.add(valorLabel);
         panel.add(valorField2);
-        panel.add(textoLabel);
         panel.add(textoPane);
         panel.add(enviarButton);
         panel.add(buscarButton);

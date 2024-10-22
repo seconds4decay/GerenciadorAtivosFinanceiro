@@ -7,28 +7,56 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.Array;
 
 public class TelaAlterarEntidadeOperadora {
     private JTextField idField1;
     private JPanel panel1;
     private JTextField nameField2;
-    private JTextField autorizacaoField;
     private JButton alterarButton;
     private JButton buscarButton;
     private JLabel saldoAcaoText;
     private JLabel saldoTituloDivida;
     private JTextArea preenchaApenasOIDTextArea;
-    private JTextField textField1;
-    private JButton creditarButton;
-    private JButton debitarButton;
+    private JComboBox comboBox1;
+    private String[] options = {"true", "false"};
+
 
     public TelaAlterarEntidadeOperadora() {
+        panel1 = new JPanel();
+        idField1 = new JTextField(20);
+        nameField2 = new JTextField(20);
+        comboBox1 = new JComboBox(options);
+        alterarButton = new JButton("Alterar");
+        buscarButton = new JButton("Buscar");
+        saldoAcaoText = new JLabel("Saldo Ação:");
+        saldoTituloDivida = new JLabel("Saldo Título Dívida:");
+        preenchaApenasOIDTextArea = new JTextArea("Preencha apenas o ID para buscar a entidade operadora.");
+
+        JLabel idLabel = new JLabel("ID:");
+        JLabel nomeLabel = new JLabel("Nome:");
+        JLabel autorizacaoLabel = new JLabel("Autorização da Ação:");
+
+
+        panel1.add(preenchaApenasOIDTextArea);
+        panel1.add(idLabel);
+        panel1.add(idField1);
+        panel1.add(nomeLabel);
+        panel1.add(nameField2);
+        panel1.add(autorizacaoLabel);
+        panel1.add(comboBox1);
+        panel1.add(alterarButton);
+        panel1.add(buscarButton);
+        panel1.add(saldoAcaoText);
+        panel1.add(saldoTituloDivida);
+
+
         alterarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int id = Integer.parseInt(idField1.getText());
                 String nome = nameField2.getText();
-                boolean autorizacao = Boolean.parseBoolean(autorizacaoField.getText());
+                boolean autorizacao = Boolean.parseBoolean(comboBox1.getSelectedItem().toString());
 
                 MediatorEntidadeOperadora mediator = new MediatorEntidadeOperadora();
                 try {
@@ -45,6 +73,7 @@ public class TelaAlterarEntidadeOperadora {
 
             }
         });
+
         buscarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,7 +86,7 @@ public class TelaAlterarEntidadeOperadora {
                         return;
                     }
                     nameField2.setText(entidade.getNome());
-                    autorizacaoField.setText(String.valueOf(entidade.getAutorizadoAcao()));
+                    comboBox1.setSelectedItem(entidade.getAutorizadoAcao() ? "true" : "false");
                     saldoAcaoText.setText("Saldo Ação:" + entidade.getSaldoAcao());
                     saldoTituloDivida.setText("Saldo Título Dívida:" + entidade.getSaldoTituloDivida());
                 } catch (IOException ex) {

@@ -13,6 +13,15 @@ public class TelaExcluirEntidadeOperadora {
     private JButton excluirButton;
 
     public TelaExcluirEntidadeOperadora() {
+        panel1 = new JPanel();
+        textField1 = new JTextField(20);
+        excluirButton = new JButton("Excluir");
+
+        JLabel idLabel = new JLabel("ID:");
+        panel1.add(idLabel);
+        panel1.add(textField1);
+        panel1.add(excluirButton);
+
         excluirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
