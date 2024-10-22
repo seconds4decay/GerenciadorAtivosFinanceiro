@@ -69,6 +69,10 @@ public class TelaOperacao{
             }
         });
     }
+
+    public JPanel getPanel1() {
+        return panel;
+    }
     
     public static void main(String[] args) {
         JFrame frame = new JFrame();

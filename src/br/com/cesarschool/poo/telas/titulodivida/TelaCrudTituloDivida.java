@@ -81,6 +81,10 @@ public class TelaCrudTituloDivida {
         tela.setTitle(titulo);
     }
 
+    public JPanel getPanel1() {
+        return panel;
+    }
+
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
