@@ -83,6 +83,8 @@ public class TelaAlterarTituloDivida {
                     }
                     nameField2.setText(divida.getNome());
                     taxaTituloDividaText.setText("Taxa de juros:" + divida.getTaxaJuros());
+                    textField1.setText(String.valueOf(divida.getDataValidade()));
+                    textField2.setText(String.valueOf(divida.getTaxaJuros()));
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
