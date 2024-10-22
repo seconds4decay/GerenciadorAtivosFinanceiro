@@ -18,6 +18,19 @@ public class TelaMenuPrincipal {
     private JPanel panel;
 
     public TelaMenuPrincipal() {
+    	panel = new JPanel();
+    	acoesButton = new JButton("Ações");
+    	entidadesOperadorasButton = new JButton("Entidades operadoras");
+    	titulosDividasButton = new JButton("Títulos de dívidas");
+    	operacoesButton = new JButton("Operações");
+    	
+        panel.add(acoesButton);
+        panel.add(entidadesOperadorasButton);
+        panel.add(titulosDividasButton);
+        panel.add(operacoesButton);
+    	
+    	
+    	
         acoesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
