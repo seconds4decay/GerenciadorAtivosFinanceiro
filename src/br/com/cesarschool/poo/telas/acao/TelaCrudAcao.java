@@ -13,6 +13,18 @@ public class TelaCrudAcao {
     private JButton sairButton;
 
     public TelaCrudAcao() {
+    	panel1 = new JPanel();
+    	adicionarButton = new JButton("Adicionar");
+    	excluirButton = new JButton("Excluir");
+    	alterarButton = new JButton("Alterar");
+    	buscarButton = new JButton("Buscar");
+    	sairButton = new JButton("Sair");
+    	
+        panel1.add(adicionarButton);
+        panel1.add(excluirButton);
+        panel1.add(alterarButton);
+        panel1.add(buscarButton);
+        panel1.add(sairButton);
         adicionarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,7 +79,7 @@ public class TelaCrudAcao {
         tela.add(painel);
         tela.pack();
         tela.setLocationRelativeTo(null);
-        tela.setSize(700, 400);
+        tela.setSize(1400, 100);
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela.setTitle(titulo);

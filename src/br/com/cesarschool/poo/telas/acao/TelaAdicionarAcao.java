@@ -18,6 +18,29 @@ public class TelaAdicionarAcao {
     private JButton enviarButton;
 
     public TelaAdicionarAcao() {
+    	panel1 = new JPanel();
+    	nomeField1 = new JTextField(20);
+    	idField1 = new JTextField(20);
+    	textField1 = new JTextField(20);
+    	textField2 = new JTextField(20);
+    	enviarButton = new JButton("Enviar");
+    	
+    	JLabel idLabel = new JLabel("ID:");
+        JLabel nomeLabel = new JLabel("Nome:");
+        JLabel dataLabel = new JLabel("Data (YYYY-MM-DD):");
+        JLabel valorLabel = new JLabel("Valor:");
+    	
+    	nomeField1.setBounds(10, 10, 10, 10);
+    	idField1.setBounds(20, 20, 200, 200);
+    	panel1.add(nomeLabel);
+        panel1.add(nomeField1);
+        panel1.add(idLabel);
+        panel1.add(idField1);
+        panel1.add(dataLabel);
+        panel1.add(textField1);
+        panel1.add(valorLabel);
+        panel1.add(textField2);
+        panel1.add(enviarButton);
         MediatorAcao mediatorAcao = new MediatorAcao();
 
         enviarButton.addActionListener(new ActionListener() {

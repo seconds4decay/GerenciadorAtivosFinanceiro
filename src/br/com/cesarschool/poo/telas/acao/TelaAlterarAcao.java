@@ -11,7 +11,6 @@ import java.time.LocalDate;
 
 public class TelaAlterarAcao {
     private JPanel panel;
-    private JPanel panel1;
     private JTextField idField1;
     private JTextField nomeField1;
     private JTextField dataField1;
@@ -21,6 +20,36 @@ public class TelaAlterarAcao {
     private JButton buscarButton;
 
     public TelaAlterarAcao() {
+    	panel = new JPanel();
+        idField1 = new JTextField(20);
+        nomeField1 = new JTextField(20);
+        dataField1 = new JTextField(20);
+        valorField2 = new JTextField(20);
+        textoPane = new JTextPane();
+        enviarButton = new JButton("Enviar");
+        buscarButton = new JButton("Buscar");
+
+        JLabel idLabel = new JLabel("ID:");
+        JLabel nomeLabel = new JLabel("Nome:");
+        JLabel dataLabel = new JLabel("Data (YYYY-MM-DD):");
+        JLabel valorLabel = new JLabel("Valor:");
+        JLabel textoLabel = new JLabel("Texto Adicional:");
+
+        idField1.setBounds(10, 10, 10, 10);
+        nomeField1.setBounds(20, 20, 200, 200);
+
+        panel.add(idLabel);
+        panel.add(idField1);
+        panel.add(nomeLabel);
+        panel.add(nomeField1);
+        panel.add(dataLabel);
+        panel.add(dataField1);
+        panel.add(valorLabel);
+        panel.add(valorField2);
+        panel.add(textoLabel);
+        panel.add(textoPane);
+        panel.add(enviarButton);
+        panel.add(buscarButton);
         buscarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

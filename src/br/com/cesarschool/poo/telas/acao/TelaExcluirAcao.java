@@ -14,6 +14,17 @@ public class TelaExcluirAcao {
     private JLabel idLabel;
 
     public TelaExcluirAcao() {
+    	panel1 = new JPanel();
+        textField1 = new JTextField(20);
+        excluirButton = new JButton("Excluir");
+        idLabel = new JLabel("ID:");
+
+        // Definindo o layout e adicionando os componentes ao painel
+        textField1.setBounds(10, 10, 10, 10);
+
+        panel1.add(idLabel);
+        panel1.add(textField1);
+        panel1.add(excluirButton);
         MediatorAcao mediatorAcao = new MediatorAcao();
         excluirButton.addActionListener(new ActionListener() {
             @Override

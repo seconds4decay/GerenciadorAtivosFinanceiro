@@ -28,9 +28,7 @@ public class TelaMenuPrincipal {
         panel.add(entidadesOperadorasButton);
         panel.add(titulosDividasButton);
         panel.add(operacoesButton);
-    	
-    	
-    	
+    		
         acoesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

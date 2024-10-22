@@ -15,6 +15,18 @@ public class TelaBuscarAcao {
     private JButton buscarButton;
 
     public TelaBuscarAcao() {
+    	panel = new JPanel();
+        textField1 = new JTextField(20);
+        buscarButton = new JButton("Buscar");
+        
+        JLabel campoLabel = new JLabel("Campo de Busca:");
+
+        // Definindo o layout e adicionando os componentes ao painel
+        textField1.setBounds(10, 10, 10, 10);
+
+        panel.add(campoLabel);
+        panel.add(textField1);
+        panel.add(buscarButton);
         buscarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
