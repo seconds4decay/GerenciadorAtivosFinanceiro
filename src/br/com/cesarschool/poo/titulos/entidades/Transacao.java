@@ -1,5 +1,7 @@
 package br.com.cesarschool.poo.titulos.entidades;
 
+import br.gov.cesarschool.poo.testes.daogenerico.Entidade;
+
 import java.time.LocalDateTime;
 
 /*
@@ -11,13 +13,13 @@ import java.time.LocalDateTime;
  * valorOperacao, do tipo double
  * dataHoraOperacao, do tipo LocalDateTime
  *  
- * Deve ter um construtor público que inicializa os atributos.
- * Deve ter métodos get/set públicos para todos os atributos, que 
- * são read-only fora da classe.
+ * Deve ter um construtor pï¿½blico que inicializa os atributos.
+ * Deve ter mï¿½todos get/set pï¿½blicos para todos os atributos, que 
+ * sï¿½o read-only fora da classe.
  * 
  *  
  */ 
-public class Transacao {
+public class Transacao extends Entidade {
     private EntidadeOperadora entidadeCredito;
     private EntidadeOperadora entidadeDebito;
     private Acao acao;
@@ -80,5 +82,9 @@ public class Transacao {
 
     private void setDataHoraOperacao(LocalDateTime dataHoraOperacao) {
         this.dataHoraOperacao = dataHoraOperacao;
+    }
+
+    public String getIdUnico() {
+        return String.valueOf(entidadeCredito.getIdentificador() + "-" + entidadeDebito.getIdentificador() + "-" + valorOperacao);
     }
 }

@@ -3,7 +3,6 @@ package br.com.cesarschool.poo.telas;
 import br.com.cesarschool.poo.telas.acao.TelaCrudAcao;
 import br.com.cesarschool.poo.telas.entidadeoperadora.TelaCrudEntidadeOperadora;
 import br.com.cesarschool.poo.telas.operacao.TelaOperacao;
-import br.com.cesarschool.poo.telas.titulodivida.TelaBuscarTituloDivida;
 import br.com.cesarschool.poo.telas.titulodivida.TelaCrudTituloDivida;
 
 import javax.swing.*;

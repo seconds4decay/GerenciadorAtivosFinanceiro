@@ -1,6 +1,6 @@
 package br.com.cesarschool.poo.titulos.entidades;
 
-import java.lang.reflect.Constructor;
+import br.gov.cesarschool.poo.testes.daogenerico.Entidade;
 
 /*
  * Esta classe deve ter os seguintes atributos:
@@ -23,7 +23,7 @@ import java.lang.reflect.Constructor;
  *  void creditarSaldoTituloDivida(double valor): deve adicionar valor ao saldoTituloDivida
  *  void debitarSaldoTituloDivida(double valor): deve diminuir valor de saldoTituloDivida  
  */
-public class EntidadeOperadora {
+public class EntidadeOperadora extends Entidade {
     private long identificador;
     private String nome;
     private boolean autorizadoAcao;
@@ -84,5 +84,10 @@ public class EntidadeOperadora {
 
     public void debitarSaldoTituloDivida(double valor) {
         saldoTituloDivida -= valor;
+    }
+
+    @Override
+    public String getIdUnico() {
+        return String.valueOf((int) identificador);
     }
 }
