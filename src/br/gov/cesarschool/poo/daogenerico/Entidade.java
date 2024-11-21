@@ -1,4 +1,4 @@
-package br.gov.cesarschool.poo.testes.daogenerico;
+package br.gov.cesarschool.poo.daogenerico;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

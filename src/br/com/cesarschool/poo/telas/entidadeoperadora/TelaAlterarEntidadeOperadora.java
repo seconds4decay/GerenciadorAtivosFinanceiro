@@ -60,7 +60,7 @@ public class TelaAlterarEntidadeOperadora {
 
                 MediatorEntidadeOperadora mediator = new MediatorEntidadeOperadora();
                 try {
-                    String message = mediator.alterar(new EntidadeOperadora(id, nome, autorizacao));
+                    String message = mediator.alterar(new EntidadeOperadora(id, nome, 100));
                     if(message == null) {
                         message = "Entidade Operadora alterada com sucesso!";
                     }

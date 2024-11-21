@@ -1,6 +1,6 @@
 package br.com.cesarschool.poo.titulos.entidades;
 
-import br.gov.cesarschool.poo.testes.daogenerico.Entidade;
+import br.gov.cesarschool.poo.daogenerico.Entidade;
 
 /*
  * Esta classe deve ter os seguintes atributos:
@@ -30,10 +30,9 @@ public class EntidadeOperadora extends Entidade {
     private double saldoAcao;
     private double saldoTituloDivida;
 
-    public EntidadeOperadora(long identificador, String nome, boolean autorizadoAcao) {
+    public EntidadeOperadora(long identificador, String nome, double autorizadoAcao) {
        this.identificador = identificador;
        this.nome = nome;
-       this.autorizadoAcao = autorizadoAcao;
        this.saldoAcao = 0;
        this.saldoTituloDivida = 0;
     }

@@ -45,7 +45,7 @@ public class TelaAdicionarEntidadeOperadora {
                 boolean autorizacao = Boolean.parseBoolean(comboBox1.getSelectedItem().toString());
 
                 try {
-                    String message = mediator.incluir(new EntidadeOperadora(id, nome, autorizacao));
+                    String message = mediator.incluir(new EntidadeOperadora(id, nome, 100));
                     if(message == null) {
                         message = "Entidade Operadora criada com sucesso!";
                     }

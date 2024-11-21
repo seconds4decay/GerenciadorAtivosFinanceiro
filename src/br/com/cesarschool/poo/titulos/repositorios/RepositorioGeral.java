@@ -1,10 +1,18 @@
 package br.com.cesarschool.poo.titulos.repositorios;
 
-import br.gov.cesarschool.poo.testes.daogenerico.DAOSerializadorObjetos;
-import br.gov.cesarschool.poo.testes.daogenerico.Entidade;
+import br.gov.cesarschool.poo.daogenerico.DAOSerializadorObjetos;
+import br.gov.cesarschool.poo.daogenerico.Entidade;
 
-import java.io.IOException;
-import java.util.List;
+public abstract class RepositorioGeral<T extends Entidade> {
+    Class<T> classeEntidade;
+    DAOSerializadorObjetos dao;
 
-public class RepositorioGeral {
+    RepositorioGeral(Class<T> classeEntidade) {
+        this.classeEntidade = classeEntidade;
+        this.dao = new DAOSerializadorObjetos<>(classeEntidade);
+    }
+
+    public abstract Class<T> getClasseEntidade();
+
+    public abstract DAOSerializadorObjetos<T> getDao();
 }

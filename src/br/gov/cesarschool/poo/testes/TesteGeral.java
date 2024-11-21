@@ -1,20 +1,9 @@
 package br.gov.cesarschool.poo.testes;
 
 import java.io.File;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Arrays;
 
-import br.com.cesarschool.poo.titulos.entidades.Acao;
-import br.com.cesarschool.poo.titulos.entidades.EntidadeOperadora;
-import br.com.cesarschool.poo.titulos.entidades.TituloDivida;
-import br.com.cesarschool.poo.titulos.entidades.Transacao;
-import br.com.cesarschool.poo.titulos.repositorios.RepositorioAcao;
-import br.com.cesarschool.poo.titulos.repositorios.RepositorioTransacao;
-import br.gov.cesarschool.poo.testes.daogenerico.Entidade;
+import br.gov.cesarschool.poo.daogenerico.Entidade;
 import br.gov.cesarschool.poo.testes.TestesDAOSerializador.EntidadeTeste;
-import org.junit.jupiter.api.Assertions;
 
 public class TesteGeral {
     protected static final String SEP_ARQUIVO = System.getProperty("file.separator");

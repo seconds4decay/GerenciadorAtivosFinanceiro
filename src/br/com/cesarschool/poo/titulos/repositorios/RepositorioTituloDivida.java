@@ -2,18 +2,16 @@ package br.com.cesarschool.poo.titulos.repositorios;
 
 import br.com.cesarschool.poo.titulos.entidades.EntidadeOperadora;
 import br.com.cesarschool.poo.titulos.entidades.TituloDivida;
-import br.gov.cesarschool.poo.testes.daogenerico.DAOSerializadorObjetos;
-import br.gov.cesarschool.poo.testes.daogenerico.Entidade;
+import br.gov.cesarschool.poo.daogenerico.DAOSerializadorObjetos;
+import br.gov.cesarschool.poo.daogenerico.Entidade;
 
 import java.io.IOException;
 import java.util.List;
 
-public class RepositorioTituloDivida extends RepositorioGeral {
-
-	private DAOSerializadorObjetos<TituloDivida> dao;
+public class RepositorioTituloDivida extends RepositorioGeral<TituloDivida> {
 
 	public RepositorioTituloDivida() {
-		this.dao = new DAOSerializadorObjetos<>(TituloDivida.class);
+		super(TituloDivida.class);
 	}
 
 	public boolean incluir(TituloDivida tituloDivida) throws IOException {
@@ -37,11 +35,16 @@ public class RepositorioTituloDivida extends RepositorioGeral {
 	}
 
 	public TituloDivida buscar(int identificador) throws IOException {
-		return dao.buscar(String.valueOf(identificador));
+		return (TituloDivida) dao.buscar(String.valueOf(identificador));
 	}
 
 	public List<Entidade> buscarTodos() throws IOException {
 		return List.of(dao.buscarTodos());
+	}
+
+	@Override
+	public Class<TituloDivida> getClasseEntidade() {
+		return classeEntidade;
 	}
 
 	public DAOSerializadorObjetos getDao() {

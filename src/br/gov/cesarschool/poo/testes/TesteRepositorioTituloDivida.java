@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import br.com.cesarschool.poo.titulos.entidades.TituloDivida;
 import br.com.cesarschool.poo.titulos.repositorios.RepositorioGeral;
 import br.com.cesarschool.poo.titulos.repositorios.RepositorioTituloDivida;
-import br.gov.cesarschool.poo.testes.daogenerico.DAOSerializadorObjetos;
+import br.gov.cesarschool.poo.daogenerico.DAOSerializadorObjetos;
 
 public class TesteRepositorioTituloDivida extends TesteGeral {
     private static final RepositorioTituloDivida DAO = new RepositorioTituloDivida();
