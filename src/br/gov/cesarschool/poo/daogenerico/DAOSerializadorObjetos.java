@@ -14,7 +14,6 @@ public class DAOSerializadorObjetos<T extends Entidade> {
     public boolean incluir(T entidade) {
         List<T> entidades = new ArrayList<>(List.of(buscarTodos()));
 
-        // Criação do diretório, se não existir
         File diretorio = new File(nomeArquivo + File.separator);
         if (!diretorio.exists()) {
             diretorio.mkdirs();
@@ -23,13 +22,11 @@ public class DAOSerializadorObjetos<T extends Entidade> {
         String idUnico = entidade.getIdUnico();
         File arquivo = new File(diretorio, idUnico);
 
-        // Verifique se o arquivo já existe
         if (arquivo.exists()) {
             System.out.println("Arquivo já existe: " + arquivo.getName());
-            return false; // Ou decida sobrescrever, dependendo da lógica desejada
+            return false;
         }
 
-        // Serializa e escreve o objeto no arquivo
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(arquivo))) {
             oos.writeObject(entidade);
             return true;
