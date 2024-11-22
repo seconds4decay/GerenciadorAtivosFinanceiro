@@ -4,7 +4,6 @@ import br.com.cesarschool.poo.titulos.entidades.Transacao;
 import br.com.cesarschool.poo.titulos.repositorios.RepositorioTransacao;
 import br.com.cesarschool.poo.titulos.utils.Comparador;
 import br.com.cesarschool.poo.titulos.utils.ComparadorTransacaoPorNomeCredora;
-import br.com.cesarschool.poo.titulos.utils.ComparadorTransacaoPorDataHora;
 import br.com.cesarschool.poo.titulos.utils.Ordenador;
 
 public class RelatorioTransacaoBroker {
@@ -25,8 +24,7 @@ public class RelatorioTransacaoBroker {
     public Transacao[] relatorioTransacaoPorDataHora() {
         Transacao[] transacoes = repositorio.buscarTodos();
 
-        Comparador ComparadorTransacaoPorDataHora = new ComparadorTransacaoPorDataHora();
-        Ordenador.ordenar(transacoes, ComparadorTransacaoPorDataHora);
+        Ordenador.ordenar(transacoes);
         return transacoes;
     }
 }
