@@ -87,4 +87,20 @@ public class Transacao extends Entidade {
     public String getIdUnico() {
         return String.valueOf(entidadeCredito.getIdentificador() + "-" + entidadeDebito.getIdentificador() + "-" + valorOperacao);
     }
+
+    public int compararCom(Transacao outraTransacao) {
+        // Compara as transações pela data/hora da operação
+        return this.dataHoraOperacao.compareTo(outraTransacao.getDataHoraOperacao());
+    }
+
+    public int comparar(Transacao outraTransacao) {
+        // Primeiro, compara pela data/hora da operação
+        int comparacaoData = this.dataHoraOperacao.compareTo(outraTransacao.getDataHoraOperacao());
+        if (comparacaoData != 0) {
+            return comparacaoData;
+        }
+
+        // Se as datas forem iguais, compara pelo valor da operação
+        return Double.compare(this.valorOperacao, outraTransacao.getValorOperacao());
+    }
 }

@@ -40,4 +40,9 @@ public class RepositorioTransacao extends RepositorioGeral<Transacao> {
 	public DAOSerializadorObjetos getDao() {
 		return dao;
 	}
+
+	public Transacao[] buscarTodos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
