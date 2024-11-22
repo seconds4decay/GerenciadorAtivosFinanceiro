@@ -4,17 +4,15 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAOSerializadorObjetos<T extends Entidade> {
-    private String nomeArquivo;
+public class DAOSerializadorObjetos {
+    private String nomeDiretorio;
 
-    public DAOSerializadorObjetos(Class<T> classe) {
-        this.nomeArquivo = "." + File.separator + classe.getSimpleName();
+    public DAOSerializadorObjetos(Class<?> tipoEntidade) {
+        this.nomeDiretorio = "." + File.separator + tipoEntidade.getSimpleName();
     }
 
-    public boolean incluir(T entidade) {
-        List<T> entidades = new ArrayList<>(List.of(buscarTodos()));
-
-        File diretorio = new File(nomeArquivo + File.separator);
+    public boolean incluir(Entidade entidade) {
+        File diretorio = new File(nomeDiretorio + File.separator);
         if (!diretorio.exists()) {
             diretorio.mkdirs();
         }
@@ -23,7 +21,6 @@ public class DAOSerializadorObjetos<T extends Entidade> {
         File arquivo = new File(diretorio, idUnico);
 
         if (arquivo.exists()) {
-            System.out.println("Arquivo já existe: " + arquivo.getName());
             return false;
         }
 
@@ -37,41 +34,40 @@ public class DAOSerializadorObjetos<T extends Entidade> {
     }
 
 
-    public boolean alterar(T entidade) {
-        File diretorio = new File(nomeArquivo + File.separator);
+    public boolean alterar(Entidade entidade) {
+        File diretorio = new File(nomeDiretorio + File.separator);
         if (!diretorio.exists() || !diretorio.isDirectory()) {
             return false;
         }
 
-        File[] arquivos = diretorio.listFiles();
-        if (arquivos != null) {
-            for (File arquivo : arquivos) {
-                if (arquivo.isFile()) {
-                    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(arquivo))) {
-                        T existingEntity = (T) ois.readObject();
-                        if (existingEntity.getIdUnico().equals(entidade.getIdUnico())) {
-                            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(arquivo))) {
-                                oos.writeObject(entidade);
-                                return true;
-                            }
-                        }
-                    } catch (IOException | ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
+        Entidade e = buscar(entidade.getIdUnico());
+
+        if(e == null) return false;
+
+        File arquivo = new File(diretorio, e.getIdUnico());
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(arquivo))) {
+            if (e.getIdUnico().equals(entidade.getIdUnico())) {
+                try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(arquivo))) {
+                    oos.writeObject(entidade);
+                    return true;
                 }
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
 
         return false;
     }
 
     public boolean excluir(String idUnico) {
-        File diretorio = new File(nomeArquivo + File.separator);
+        File diretorio = new File(nomeDiretorio + File.separator);
         if (!diretorio.exists() || !diretorio.isDirectory()) {
             return false;
         }
 
         File[] arquivos = diretorio.listFiles();
+
         if (arquivos != null) {
             for (File arquivo : arquivos) {
                 if (arquivo.isFile() && arquivo.getName().equals(idUnico)) {
@@ -82,9 +78,9 @@ public class DAOSerializadorObjetos<T extends Entidade> {
         return false;
     }
 
-    public T buscar(String idUnico) {
-        T[] entidades = buscarTodos();
-        for (T e : entidades) {
+    public Entidade buscar(String idUnico) {
+        Entidade[] entidades = buscarTodos();
+        for (Entidade e : entidades) {
             if (e.getIdUnico().equals(idUnico)) {
                 return e;
             }
@@ -92,27 +88,28 @@ public class DAOSerializadorObjetos<T extends Entidade> {
         return null;
     }
 
-    public T[] buscarTodos() {
-        File diretorio = new File(nomeArquivo + File.separator);
+    public Entidade[] buscarTodos() {
+        File diretorio = new File(nomeDiretorio + File.separator);
         if (!diretorio.exists() || !diretorio.isDirectory()) {
-            return (T[]) java.lang.reflect.Array.newInstance(Entidade.class, 0);
+            return new Entidade[0];
         }
 
-        List<T> entidades = new ArrayList<>();
+        List<Entidade> entidades = new ArrayList<>();
         File[] arquivos = diretorio.listFiles();
-        if (arquivos != null) {
-            for (File arquivo : arquivos) {
-                if (arquivo.isFile()) {
-                    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(arquivo))) {
-                        T entidade = (T) ois.readObject();
-                        entidades.add(entidade);
-                    } catch (IOException | ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                }
+
+        if(arquivos == null) {
+            return new Entidade[0];
+        }
+
+        for (File arquivo : arquivos) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(arquivo))) {
+                Entidade entidade = (Entidade) ois.readObject();
+                entidades.add(entidade);
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
             }
         }
 
-        return entidades.toArray((T[]) new Entidade[0]);
+        return entidades.toArray(new Entidade[0]);
     }
 }

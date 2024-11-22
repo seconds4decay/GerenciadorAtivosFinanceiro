@@ -5,7 +5,7 @@ import br.com.cesarschool.poo.titulos.entidades.EntidadeOperadora;
 import br.gov.cesarschool.poo.daogenerico.DAOSerializadorObjetos;
 import br.gov.cesarschool.poo.daogenerico.Entidade;
 
-public class RepositorioEntidadeOperadora extends RepositorioGeral<EntidadeOperadora> {
+public class RepositorioEntidadeOperadora extends RepositorioGeral {
 
 
     public RepositorioEntidadeOperadora() {
@@ -35,12 +35,11 @@ public class RepositorioEntidadeOperadora extends RepositorioGeral<EntidadeOpera
         return (EntidadeOperadora) dao.buscar(String.valueOf(identificador));
     }
 
-    @Override
-    public Class<EntidadeOperadora> getClasseEntidade() {
+    public Class<?> getClasseEntidade() {
         return classeEntidade;
     }
 
-    public DAOSerializadorObjetos<EntidadeOperadora> getDao() {
+    public DAOSerializadorObjetos getDao() {
         return dao;
     }
 }

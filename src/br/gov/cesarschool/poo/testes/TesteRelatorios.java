@@ -81,7 +81,7 @@ public class TesteRelatorios extends TesteGeral {
 	}
 	
 	@Test
-	public void t006() throws IOException {
+	public void t006() {
 		excluirArquivosDiretorio(NOME_DIR_TRANSACAO);
 		RepositorioTransacao rep = new RepositorioTransacao();		
 		RelatorioTransacaoBroker broker = new RelatorioTransacaoBroker();
@@ -101,7 +101,7 @@ public class TesteRelatorios extends TesteGeral {
 		Assertions.assertEquals(trans[2].getEntidadeCredito().getNome(), "ZZZ");		
 	}
 	@Test
-	public void t007() throws IOException {
+	public void t007() {
 		excluirArquivosDiretorio(NOME_DIR_TRANSACAO);
 		RepositorioTransacao rep = new RepositorioTransacao();		
 		RelatorioTransacaoBroker broker = new RelatorioTransacaoBroker();
@@ -124,19 +124,13 @@ public class TesteRelatorios extends TesteGeral {
 		Assertions.assertEquals(trans[2].getEntidadeCredito().getNome(), "BBB");		
 		Assertions.assertEquals(trans[3].getEntidadeCredito().getNome(), "AAA");
 	}
-	
-	static class ComparadorEntidadeModeloIdUnico implements Comparador {		
+
+	static class ComparadorEntidadeModeloIdUnico implements Comparador {
 		public int comparar(Comparavel c1, Comparavel c2) {
 			Entidade e1 = (Entidade)c1;
 			Entidade e2 = (Entidade)c2;
 			return e1.getIdUnico().compareTo(e2.getIdUnico());
 		}
-
-		@Override
-		public int comparar(Object obj1, Object obj2) {
-			// TODO Auto-generated method stub
-			return 0;
-		}		
 	}
 	
 }

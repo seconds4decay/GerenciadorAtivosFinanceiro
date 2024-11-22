@@ -1,5 +1,5 @@
 package br.com.cesarschool.poo.titulos.utils;
 
-public interface Comparador<T> {
-    int comparar(T obj1, T obj2);
+public interface Comparador {
+    int comparar(Comparavel obj1, Comparavel obj2);
 }

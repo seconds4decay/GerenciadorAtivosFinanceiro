@@ -23,7 +23,7 @@ public class TesteRepositorioTituloDivida extends TesteGeral {
         Assertions.assertNotNull(dao);
     }
     @Test
-    public void testDAO01() throws IOException {
+    public void testDAO01() {
         excluirArquivosDiretorio(NOME_DIR_TITULO);
         TituloDivida acao = new TituloDivida(1, "A1", LocalDate.now(), 100.0);
         Assertions.assertTrue(DAO.incluir(acao));
@@ -35,7 +35,7 @@ public class TesteRepositorioTituloDivida extends TesteGeral {
         Assertions.assertTrue(ComparadoraObjetosSerial.compareObjectsSerial(acao, acao1));
     }
     @Test
-    public void testDAO02() throws IOException {
+    public void testDAO02() {
         excluirArquivosDiretorio(NOME_DIR_TITULO);
         TituloDivida acao = new TituloDivida(2, "A2", LocalDate.now(), 101.0);
         Assertions.assertTrue(DAO.incluir(acao));
@@ -43,7 +43,7 @@ public class TesteRepositorioTituloDivida extends TesteGeral {
         Assertions.assertEquals(obterQtdArquivosDir(NOME_DIR_TITULO), 1);
     }
     @Test
-    public void testDAO03() throws IOException {
+    public void testDAO03() {
         excluirArquivosDiretorio(NOME_DIR_TITULO);
         int id = 3;
         TituloDivida acao = new TituloDivida(id, "A3", LocalDate.now(), 102.0);
@@ -56,7 +56,7 @@ public class TesteRepositorioTituloDivida extends TesteGeral {
         Assertions.assertTrue(ComparadoraObjetosSerial.compareObjectsSerial(acaoAlt, acao1));
     }
     @Test
-    public void testDAO04() throws IOException {
+    public void testDAO04() {
         excluirArquivosDiretorio(NOME_DIR_TITULO);
         TituloDivida acao = new TituloDivida(4, "A4", LocalDate.now(), 104.0);
         TituloDivida acaoAlt = new TituloDivida(5, "A5", LocalDate.now().minusDays(11), 105.0);
@@ -65,7 +65,7 @@ public class TesteRepositorioTituloDivida extends TesteGeral {
         Assertions.assertEquals(obterQtdArquivosDir(NOME_DIR_TITULO), 1);
     }
     @Test
-    public void testDAO05() throws IOException {
+    public void testDAO05() {
         excluirArquivosDiretorio(NOME_DIR_TITULO);
         int id = 6;
         TituloDivida acao = new TituloDivida(id, "A6", LocalDate.now(), 106.0);
@@ -76,7 +76,7 @@ public class TesteRepositorioTituloDivida extends TesteGeral {
         Assertions.assertNull(acaoBusc);
     }
     @Test
-    public void testDAO06() throws IOException {
+    public void testDAO06() {
         excluirArquivosDiretorio(NOME_DIR_TITULO);
         TituloDivida acao = new TituloDivida(7, "A7", LocalDate.now(), 107.0);
         Assertions.assertTrue(DAO.incluir(acao));

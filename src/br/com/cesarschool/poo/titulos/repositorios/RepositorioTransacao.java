@@ -8,17 +8,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioTransacao extends RepositorioGeral<Transacao> {
+public class RepositorioTransacao extends RepositorioGeral {
 
 	public RepositorioTransacao() {
 		super(Transacao.class);
 	}
 
-	public boolean incluir(Transacao transacao) throws IOException {
+	public boolean incluir(Transacao transacao) {
 		return dao.incluir(transacao);
 	}
 
-	public Transacao[] buscarPorEntidadeCredora(long identificadorEntidadeCredito) throws IOException {
+	public Transacao[] buscarPorEntidadeCredora(long identificadorEntidadeCredito) {
 		Entidade[] todasEntidades = dao.buscarTodos();
 
 		List<Transacao> transacoesEncontradas = new ArrayList<>();
@@ -33,7 +33,7 @@ public class RepositorioTransacao extends RepositorioGeral<Transacao> {
 	}
 
 	@Override
-	public Class<Transacao> getClasseEntidade() {
+	public Class<?> getClasseEntidade() {
 		return classeEntidade;
 	}
 
@@ -42,7 +42,13 @@ public class RepositorioTransacao extends RepositorioGeral<Transacao> {
 	}
 
 	public Transacao[] buscarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		Entidade[] entidades = dao.buscarTodos();
+
+		List<Transacao> transacaos = new ArrayList<>();
+		for (Entidade entidade : entidades) {
+			transacaos.add((Transacao) entidade);
+		}
+
+		return transacaos.isEmpty() ? new Transacao[0] : transacaos.toArray(new Transacao[0]);
 	}
 }

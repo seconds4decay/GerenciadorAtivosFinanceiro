@@ -27,7 +27,7 @@ public class TesteRepositorioTransacao extends TesteGeral {
         Assertions.assertNotNull(dao);
     }
     @Test
-    public void testDAO01() throws IOException {
+    public void testDAO01() {
         excluirArquivosDiretorio(NOME_DIR_TRANSACAO);
         Acao acao = new Acao(1, "A1", LocalDate.now(), 100.0);
         EntidadeOperadora eaC = new EntidadeOperadora(2, "EO1", 100.0);
@@ -38,7 +38,7 @@ public class TesteRepositorioTransacao extends TesteGeral {
         Assertions.assertTrue(new File(obterNomeArquivo(NOME_DIR_TRANSACAO, tr)).exists());
     }
     @Test
-    public void testDAO02() throws IOException {
+    public void testDAO02() {
         excluirArquivosDiretorio(NOME_DIR_TRANSACAO);
         TituloDivida titulo = new TituloDivida(4, "T4", LocalDate.now(), 102.0);
         EntidadeOperadora eaC = new EntidadeOperadora(5, "EO5", 103.0);
@@ -49,7 +49,7 @@ public class TesteRepositorioTransacao extends TesteGeral {
         Assertions.assertTrue(new File(obterNomeArquivo(NOME_DIR_TRANSACAO, tr)).exists());
     }
     @Test
-    public void testDAO03() throws IOException {
+    public void testDAO03()  {
         excluirArquivosDiretorio(NOME_DIR_TRANSACAO);
         long idCred = 7;
         TituloDivida titulo = new TituloDivida(5, "T5", LocalDate.now(), 107.0);
@@ -70,7 +70,7 @@ public class TesteRepositorioTransacao extends TesteGeral {
         Assertions.assertTrue(ComparadoraObjetosSerial.compareObjectsSerial(tr2, trs[1]));
     }
     @Test
-    public void testDAO04() throws IOException {
+    public void testDAO04()  {
         excluirArquivosDiretorio(NOME_DIR_TRANSACAO);
         long idDeb = 9;
         TituloDivida titulo = new TituloDivida(6, "T6", LocalDate.now(), 108.0);

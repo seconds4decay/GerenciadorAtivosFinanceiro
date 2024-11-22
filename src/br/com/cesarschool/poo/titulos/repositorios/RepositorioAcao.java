@@ -2,8 +2,9 @@ package br.com.cesarschool.poo.titulos.repositorios;
 
 import br.com.cesarschool.poo.titulos.entidades.Acao;
 import br.gov.cesarschool.poo.daogenerico.DAOSerializadorObjetos;
+import br.gov.cesarschool.poo.daogenerico.Entidade;
 
-public class RepositorioAcao extends RepositorioGeral<Acao> {
+public class RepositorioAcao extends RepositorioGeral {
 
 	public RepositorioAcao() {
 		super(Acao.class);
@@ -33,7 +34,7 @@ public class RepositorioAcao extends RepositorioGeral<Acao> {
 	}
 
 	@Override
-	public Class<Acao> getClasseEntidade() {
+	public Class<?> getClasseEntidade() {
 		return classeEntidade;
 	}
 

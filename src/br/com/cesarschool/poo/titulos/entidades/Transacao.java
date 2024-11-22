@@ -1,6 +1,7 @@
 package br.com.cesarschool.poo.titulos.entidades;
 
 import br.gov.cesarschool.poo.daogenerico.Entidade;
+import br.com.cesarschool.poo.titulos.utils.Comparavel;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +20,7 @@ import java.time.LocalDateTime;
  * 
  *  
  */ 
-public class Transacao extends Entidade {
+public class Transacao extends Entidade implements Comparavel {
     private EntidadeOperadora entidadeCredito;
     private EntidadeOperadora entidadeDebito;
     private Acao acao;
@@ -88,19 +89,16 @@ public class Transacao extends Entidade {
         return String.valueOf(entidadeCredito.getIdentificador() + "-" + entidadeDebito.getIdentificador() + "-" + valorOperacao);
     }
 
-    public int compararCom(Transacao outraTransacao) {
-        // Compara as transações pela data/hora da operação
-        return this.dataHoraOperacao.compareTo(outraTransacao.getDataHoraOperacao());
-    }
+    @Override
+    public int compararCom(Comparavel c) {
+        Transacao outraTransacao = (Transacao) c;
 
-    public int comparar(Transacao outraTransacao) {
-        // Primeiro, compara pela data/hora da operação
-        int comparacaoData = this.dataHoraOperacao.compareTo(outraTransacao.getDataHoraOperacao());
-        if (comparacaoData != 0) {
-            return comparacaoData;
+        if(this.dataHoraOperacao.isBefore(outraTransacao.dataHoraOperacao)) {
+            return 1;
+        } else if(this.dataHoraOperacao.isAfter(outraTransacao.dataHoraOperacao)) {
+            return -1;
+        } else {
+            return 0;
         }
-
-        // Se as datas forem iguais, compara pelo valor da operação
-        return Double.compare(this.valorOperacao, outraTransacao.getValorOperacao());
     }
 }

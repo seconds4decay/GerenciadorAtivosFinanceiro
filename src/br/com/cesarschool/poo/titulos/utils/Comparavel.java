@@ -1,5 +1,5 @@
 package br.com.cesarschool.poo.titulos.utils;
 
-public interface Comparavel<T> {
-    int compararCom(T outro);
+public interface Comparavel {
+    int compararCom(Comparavel c);
 }
