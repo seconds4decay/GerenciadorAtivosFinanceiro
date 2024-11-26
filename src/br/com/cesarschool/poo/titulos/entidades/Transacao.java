@@ -86,7 +86,27 @@ public class Transacao extends Entidade implements Comparavel {
     }
 
     public String getIdUnico() {
-        return String.valueOf(entidadeCredito.getIdentificador() + "-" + entidadeDebito.getIdentificador() + "-" + valorOperacao);
+        String id = "";
+
+        if(this.entidadeCredito != null) {
+            id = id.concat(this.entidadeCredito.getIdUnico());
+        }
+
+        if(this.entidadeDebito != null) {
+            id = id.concat("_" + this.entidadeDebito.getIdUnico());
+        }
+
+        if(this.acao != null) {
+            id = id.concat("_" + this.acao.getIdUnico());
+        } else if(this.tituloDivida != null) {
+            id = id.concat("_" + this.tituloDivida.getIdUnico());
+        }
+
+        if(this.dataHoraOperacao != null) {
+            id = id.concat("_"+ this.dataHoraOperacao.getYear() + this.dataHoraOperacao.getMonthValue() + this.dataHoraOperacao.getDayOfMonth() + this.dataHoraOperacao.getHour() + this.dataHoraOperacao.getMinute() + this.dataHoraOperacao.getSecond());
+        }
+
+        return id;
     }
 
     @Override
