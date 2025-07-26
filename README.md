@@ -28,6 +28,6 @@ O Gerenciador de Ativos Financeiros é uma aplicação desenvolvida em Java com 
 - Interface gráfica com navegação em menus
 - Armazenamento persistente dos dados em arquivos
 
-## 🧑‍💻 Autor
+## 🧑‍💻 Equipe
 
-Desenvolvido por [Seu Nome ou Equipe].
+Desenvolvido por [Lucas Ferreira](https://github.com/seconds4decay) e [Felipe Matias](https://github.com/Zibec).
